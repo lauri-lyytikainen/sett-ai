@@ -1,16 +1,12 @@
-import os
 import streamlit as st
 from typing import Generator
 from groq import Groq
-from dotenv import load_dotenv
-
-load_dotenv()
 
 userIconUrl = "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/profileicon/1389.png"
 assistantIconUrl = "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Sett.png"
 
 def main():
-    client = Groq(api_key=os.getenv('GCP_PROJECT_ID'))
+    client = Groq(api_key=st.secrets["GROQ_API_KEY"])
     st.title("Sett AI")
 
     if "messages" not in st.session_state:
